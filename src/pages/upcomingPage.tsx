@@ -8,7 +8,7 @@ import MovieFilterUI, {
   genreFilter,
 } from "../components/movieFilterUI";
 import { DiscoverMovies } from "../types/interfaces";
-import { useQuery } from "react-query";
+import { useQuery } from "react-query"; // caching
 import Spinner from "../components/spinner";
 import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
 
@@ -25,7 +25,7 @@ const genreFiltering = {
 };
 
 const upcomingMoviesPage: React.FC = () => {
-  const { data, error, isLoading, isError } = useQuery<DiscoverMovies, Error>("upcoming", upcomingMovies);
+  const { data, error, isLoading, isError } = useQuery<DiscoverMovies, Error>("upcoming", upcomingMovies); // caching
   const { filterValues, setFilterValues, filterFunction } = useFiltering(
     [titleFiltering, genreFiltering]
   );
